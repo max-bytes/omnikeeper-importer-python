@@ -2,7 +2,8 @@ certifi==2022.6.15
 chardet==4.0.0
 idna==2.10
 numpy==1.21.6
--e git+https://github.com/max-bytes/omnikeeper-importer-python.git@5a42f1e9db08f3ea84dbfb1d1a65a1d033039b12#egg=omnikeeper_importer
-pkg_resources==0.0.0
+oauthlib==3.2.0
+-e git+https://github.com/max-bytes/omnikeeper-importer-python.git@bda0b7134c2439402781132573770f84e766d816#egg=omnikeeper_importer
 requests==2.25.1
+requests-oauthlib==1.3.0
 urllib3==1.26.12
