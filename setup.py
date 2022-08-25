@@ -6,5 +6,5 @@ setup(
     description='Python library containing helper functions for implementing omnikeeper importers',
     author='Maximilian Csuk',
     license='Apache 2.0',
-    Install_requires=["requests==2.25.1"]
+    install_requires=["requests==2.25.1","numpy==1.21.6"]
 )
