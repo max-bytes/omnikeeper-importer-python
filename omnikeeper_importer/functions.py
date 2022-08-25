@@ -48,15 +48,15 @@ def build_id_method_related_temp_id(tempID: str, outgoing: bool, predicateID: st
         "predicateID": predicateID
     }
 
-def ingest(config: dict, cis: array, relations: array, read_layers: array, write_layer: str, access_token: str):
+def ingest(config: dict, cis: array, relations: array, access_token: str):
     api_url = f"%s/api/v1/ingest/genericJSON/data" % (config["url"])
     data = {
         "cis": cis,
         "relations": relations
     }
     params={
-        "readLayerIDs": read_layers,
-        "writeLayerID": write_layer
+        "readLayerIDs": config["read_layer_ids"],
+        "writeLayerID": config["write_layer_id"]
     }
     headers = CaseInsensitiveDict()
     headers["Authorization"] = f"Bearer %s" % access_token
