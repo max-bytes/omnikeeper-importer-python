@@ -93,4 +93,4 @@ def ingest(config: dict, cis: array, relations: array, access_token: str):
 
     resp = requests.post(api_url, params=params, json=data, verify=False, headers=headers, timeout=config["timeout_seconds"])
     if resp.status_code != 200:
-        raise Exception(f"Expected return code 200, received {resp.status_code}")
+        raise Exception(f"Expected return code 200, received {resp.status_code}: {resp.content}")
