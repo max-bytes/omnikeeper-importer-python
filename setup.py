@@ -2,7 +2,7 @@ from setuptools import setup
 setup(
     name='omnikeeper_importer',
     packages=['omnikeeper_importer'],
-    version='1.0.1',
+    version='1.1.0',
     description='Python library containing helper functions for implementing omnikeeper importers',
     author='Maximilian Csuk',
     license='Apache 2.0',
