@@ -3,10 +3,8 @@ import time
 import sys
 from pathlib import Path
 
-def check():
+def check(threshold_seconds: float):
     try:
-        threshold_seconds = float(os.environ["HEALTHCHECK_THRESHOLD"]) # TODO: take from arg instead
-
         epoch_time = time.time()
         mtime = os.path.getmtime('/tmp/healthcheck_stat')
         delta = epoch_time - mtime
