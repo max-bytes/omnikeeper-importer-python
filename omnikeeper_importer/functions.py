@@ -42,12 +42,12 @@ def build_attribute(name: str, values: 'Union[list[str],str]', type: str = "Text
 def build_id_method_data(attributes: dict) -> dict:
     return {"type": "OKPluginGenericJSONIngest.InboundIDMethodByData, OKPluginGenericJSONIngest", "attributes": attributes}
 
-def build_id_method_attribute(attribute: dict) -> dict:
+def build_id_method_attribute(attribute: dict, caseInsensitive: bool = False) -> dict:
     return {
         "type": "OKPluginGenericJSONIngest.InboundIDMethodByAttribute, OKPluginGenericJSONIngest",
         "attribute": attribute,
         "modifiers": {
-            "caseInsensitive": False
+            "caseInsensitive": caseInsensitive
         }}
 
 def build_id_method_intersect(inner: array) -> dict:
