@@ -79,6 +79,7 @@ def get_access_token(config: dict) -> str:
     token = oauth.fetch_token(token_url=config['token_url'], username=config['username'], password=config['password'])
     return token["access_token"]
 
+# taken from https://death.andgravity.com/stable-hashing
 def hash_data(data) -> bytes:
     dumped = json.dumps(
         data,
