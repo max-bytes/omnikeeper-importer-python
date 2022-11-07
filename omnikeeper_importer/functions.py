@@ -6,6 +6,8 @@ from oauthlib.oauth2 import LegacyApplicationClient
 from requests_oauthlib import OAuth2Session
 from pythonjsonlogger import jsonlogger
 import logging
+import hashlib
+import json
 
 def create_logger(level: int):
     logger = logging.getLogger()
@@ -77,13 +79,20 @@ def get_access_token(config: dict) -> str:
     token = oauth.fetch_token(token_url=config['token_url'], username=config['username'], password=config['password'])
     return token["access_token"]
 
+def hash_data(data) -> bytes:
+    dumped = json.dumps(
+        data,
+        ensure_ascii=False,
+        sort_keys=True,
+        indent=None,
+        separators=(',', ':'),
+    )
+    hash = hashlib.md5(dumped.encode('utf-8')).digest()
+    return hash
 
-def ingest(config: dict, cis: array, relations: array, access_token: str):
+def ingest(config: dict, data: array, access_token: str):
+
     api_url = f"%s/api/v1/ingest/genericJSON/data" % (config["url"])
-    data = {
-        "cis": cis,
-        "relations": relations
-    }
     params={
         "readLayerIDs": config["read_layer_ids"],
         "writeLayerID": config["write_layer_id"]
